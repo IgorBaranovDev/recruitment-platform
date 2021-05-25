@@ -4,10 +4,10 @@ import { Search as SearchIcon } from '@material-ui/icons';
 
 import { FilterContext } from 'app/contexts/FilterContext';
 
-import { INTERNSHIPS_DATA } from 'app/data/INTERNSHIPS_DATA';
-import { fetchSpecialities } from 'app/API/specialities';
+// import { INTERNSHIPS_DATA } from 'app/data/INTERNSHIPS_DATA';
+// import { fetchSpecialities } from 'app/API/specialities';
 import { fetchInternships } from 'app/API/interships';
-import SPECIALIZATION_ITEMS_DATA from 'app/data/SPECIALIZATION_ITEMS_DATA';
+// import SPECIALIZATION_ITEMS_DATA from 'app/data/SPECIALIZATION_ITEMS_DATA';
 
 import {
 	DropdownList,
@@ -82,10 +82,11 @@ export const Filter: React.FunctionComponent = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const specialities = await fetchSpecialities();
-				setSpecializationItems(specialities);
+				// const specialities = await fetchSpecialities();
+				// setSpecializationItems(specialities);
 			} catch (e) {
-				setSpecializationItems(SPECIALIZATION_ITEMS_DATA);
+				console.log('error');
+				// setSpecializationItems(SPECIALIZATION_ITEMS_DATA);
 			}
 		};
 		fetchData();
@@ -96,7 +97,8 @@ export const Filter: React.FunctionComponent = () => {
 				const data = await fetchInternships(getId);
 				setTrainings?.(data);
 			} catch (e) {
-				setTrainings?.(INTERNSHIPS_DATA);
+				console.log('error');
+				// setTrainings?.(INTERNSHIPS_DATA);
 			}
 		};
 		fetchData();
